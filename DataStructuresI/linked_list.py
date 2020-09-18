@@ -27,7 +27,6 @@ class Node:
 # where the snake can grow based upon having more links in it
 
 class LinkedList:
-    
     def __init__(self):
         self.head = None
         self.tail = None
@@ -52,28 +51,62 @@ class LinkedList:
             remove the last node in the chain and return its value
         """
         # check if list is empty
+        if self.head is None and self.tail is None:
             # return None
+            return None
         # check if there is only one node
+        if self. head == self.tail
             # store the value of the node that we are going to remove
+            value = self.tail.get_value()
             # remove the node
             # set head and the tail to None
+            self.head = None
+            self.tail = None
             # return the stored value
+            return value
         # otherwise
+        else:
             # store the value of the node that we are going to remove
-            
-            # we need to set the "self.tail" to the secomd to the last node
-            # we can only do thid by traversing the whole list from beginning to end
+            value = self.tail.get_value()
+            # we need to set the "self.tail" to the second to the last node
+            # we can only do this by traversing the whole list from beginning to end
 
             # starting from head
+            current_node = self.head
 
             # keep iterating until the node after "current_node" is the tail
+            while current_node.get_next() != self.tail:
+                # keep looping
+                current_node = current_node.get_next()
 
             # at the end of iteration, set "self.tail" to the current_node
+            self.tail = current_node
 
-            # set the tail's "next_node" to None
+            # set the new tail's "next_node" to None
+            self.tail.set_next(None)
 
             # return value.
+            return value
 
     def remove_head(self):
-        pass
-        # @ 1:45 ish. Like removing tail
+        # check if list is empty
+        if self.head is None and self.tail is None:
+            # return None
+            return None
+         # check if there is only one node
+        if self. head == self.tail
+            # store the value of the node that we are going to remove
+            value = self.head.get_value()
+            # remove the node
+            # set head and the tail to None
+            self.head = None
+            self.tail = None
+            # return the stored value
+            return value
+        else:
+            # store the old head's value
+            value = self.head.get_value()
+            # set self.head to old head's next
+            self.head = self.head.get_next()
+            #return the value
+            return value
